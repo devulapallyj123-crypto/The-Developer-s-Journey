@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranay Devulapally | Portfolio</title>
+    <style>
+        :root {
+            --bg: #0b0f19;
+            --bg-secondary: #111827;
+            --card: #1a2234;
+            --text: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent: #f59e0b;
+            --accent-hover: #fbbf24;
+            --border: #1f2937;
+            --gradient: linear-gradient(135deg, #f59e0b, #d97706);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1.1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.35rem;
+            letter-spacing: -0.5px;
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 5.5rem 1.5rem 4.5rem;
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.1rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 0.8rem;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-content h1 span {
+            color: var(--accent);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 480px;
+        }
+
+        .hero-content .location {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.7rem;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: #111;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.25);
+        }
+
+        .btn-outline {
+            border: 1px solid var(--border);
+            color: var(--text);
+            margin-left: 0.8rem;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .hero-avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid #1f2937;
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.15);
+            margin: 0 auto;
+        }
+
+        .hero-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4.5rem 1.5rem;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* ===== ABOUT ===== */
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.08rem;
+            max-width: 750px;
+            line-height: 1.7;
+        }
+
+        .about-text p {
+            margin-bottom: 1.1rem;
+        }
+
+        /* ===== SKILLS ===== */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 0.55rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.92rem;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .skill:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PROJECTS ===== */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.6rem;
+        }
+
+        .project-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.25s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #374151;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .project-img {
+            height: 180px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            padding: 1.5rem;
+        }
+
+        .project-img img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+
+        .project-body {
+            padding: 1.5rem;
+        }
+
+        .project-body h3 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--text);
+        }
+
+        .project-body p {
+            color: var(--text-muted);
+            font-size: 0.92rem;
+            line-height: 1.55;
+        }
+
+        /* ===== INTERESTS & GOALS ===== */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+        }
+
+        .info-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 1.1rem;
+            color: var(--accent);
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
+
+        .info-card li::before {
+            content: "▹";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+
+        .info-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.65;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .contact-box p {
+            color: var(--text-muted);
+            margin: 1rem 0 2rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 2.5rem 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 800px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding-top: 4rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2.4rem;
+            }
+
+            .hero-avatar {
+                width: 220px;
+                height: 220px;
+                order: -1;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 0.8rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .two-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <div class="logo">Pranay.dev</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Hi, I'm <span>Pranay Devulapally</span></h1>
+            <p class="subtitle">15-year-old student developer & aspiring entrepreneur from India. I build projects that solve real problems in education and technology.</p>
+            <div class="location">📍 India</div>
+            <div>
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-outline">Get in Touch</a>
+            </div>
+        </div>
+        <div class="hero-avatar">
+            <img src="https://i.ibb.co/q3mnm8dT/IMG-20260702-WA0027.jpg" alt="Pranay Devulapally">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-text">
+            <p>I am Pranay Devulapally, a 15-year-old student, developer, and aspiring entrepreneur from India. I am passionate about technology, software development, Formula 1 engineering, aerodynamics, and educational technology.</p>
+            <p>I enjoy building projects that solve real-world problems and help students, schools, and technology enthusiasts.</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML</div>
+            <div class="skill">CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">Python (Beginner)</div>
+            <div class="skill">UI/UX Design</div>
+            <div class="skill">Firebase Fundamentals</div>
+            <div class="skill">Project Planning & Documentation</div>
+            <div class="skill">Web Development</div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+
+            <!-- F1 Nexus -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://i.ibb.co/VWLYs6Lp/IMG-20260810-170251.jpg" alt="F1 Nexus">
+                </div>
+                <div class="project-body">
+                    <h3>F1 Nexus</h3>
+                    <p>An innovation-focused platform for Formula 1 enthusiasts and aspiring engineers. Provides insights into aerodynamics, vehicle performance, racing technology, and engineering concepts through an interactive experience.</p>
+                </div>
+            </div>
+
+            <!-- EduManage -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://i.ibb.co/JwxJqrrc/IMG-20260810-170232.jpg" alt="EduManage">
+                </div>
+                <div class="project-body">
+                    <h3>EduManage</h3>
+                    <p>A School Management System designed to streamline administration, attendance tracking, grade management, communication, fee management, and academic operations for educational institutions.</p>
+                </div>
+            </div>
+
+            <!-- Admin Portal -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://i.ibb.co/SDwjCk2g/IMG-20260810-170344.jpg" alt="Admin Portal">
+                </div>
+                <div class="project-body">
+                    <h3>Admin Portal</h3>
+                    <p>A centralized dashboard for managing school operations, user accounts, reports, and administrative tasks efficiently.</p>
+                </div>
+            </div>
+
+            <!-- IgniteLearn -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://i.ibb.co/Dggkg6BG/IMG-20260810-170443.jpg" alt="IgniteLearn">
+                </div>
+                <div class="project-body">
+                    <h3>IgniteLearn</h3>
+                    <p>An educational platform focused on improving student learning experiences through accessible and engaging digital tools.</p>
+                </div>
+            </div>
+
+            <!-- TheoryLoop -->
+            <div class="project-card">
+                <div class="project-img">
+                    <img src="https://i.ibb.co/LD8RPWSQ/IMG-20260810-170320.jpg" alt="TheoryLoop">
+                </div>
+                <div class="project-body">
+                    <h3>TheoryLoop</h3>
+                    <p>A project aimed at making learning and revision more effective through structured educational content and knowledge management.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERESTS & GOALS -->
+    <section>
+        <div class="two-col">
+            <div class="info-card">
+                <h3>Interests</h3>
+                <ul>
+                    <li>Formula 1 Technology</li>
+                    <li>Aerodynamics</li>
+                    <li>Mechanical Engineering</li>
+                    <li>Aerospace Concepts</li>
+                    <li>Educational Technology</li>
+                    <li>Web Development</li>
+                    <li>Programming</li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>Goals</h3>
+                <p>My goal is to continue learning software development, build impactful products, contribute to educational innovation, and combine my interest in engineering and technology to create solutions that make a difference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+        <div class="contact-box">
+            <h2 class="section-title" style="display: inline-block;">Get In Touch</h2>
+            <p>Feel free to reach out if you'd like to connect or collaborate on something interesting.</p>
+            <div class="contact-links">
+                <a href="https://github.com/yourusername" class="btn btn-primary" target="_blank">GitHub</a>
+                <a href="#" class="btn btn-outline">SoloLearn</a>
+                <a href="#" class="btn btn-outline">Discord</a>
+                <a href="mailto:youremail@example.com" class="btn btn-outline">Email</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Pranay Devulapally · Built with passion</p>
+    </footer>
+
+</body>
+                  </html>
